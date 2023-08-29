@@ -1,0 +1,16 @@
+{
+  "name": "to-do_list_app",
+  "version": "1.0.0",
+  "description": "Simple todo list application",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nitin Arya",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}

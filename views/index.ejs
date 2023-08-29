@@ -1,0 +1,124 @@
+<%- include("partials/header.ejs") %>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-lg-6 col-md-12 border">
+      <h3 class="mt-2">TODAY'S</h3>
+      <div class="col taskscreen">
+        <% if (locals.todayTask) { %> 
+            <% for( let i = 0; i <Object.keys(todayTask).length; i++) { %>
+        <div class="row rounded border mx-1 my-2 px-2">
+          <div 
+          <% if (todayTask[Object.keys(todayTask)[i]] === true) { %>
+            class="col-xl-8 col-lg-7 col-md-8 col-12 pt-2 donetoday"
+          <% } else { %>
+            class="col-xl-8 col-lg-7 col-md-8 col-12 pt-2 donetoday linethrough"
+            <% } %>
+          >
+            <%= i+1 %>. <%= Object.keys(todayTask)[i]%>
+          </div>
+          <div class="col-xl-4 col-lg-5 col-md-4 col-12">
+            <form action="/delete" class="text-center" method="post">
+              <button
+                name="todaytaskdone"
+                type="submit"
+                class="btn btn-sm btn-outline-secondary my-1 donebutton"
+                value="<%= Object.keys(todayTask)[i] %>"
+                >
+                <% if (todayTask[Object.keys(todayTask)[i]] === true) { %>
+                    Done
+                  <% } else { %>
+                    Undone
+                    <% } %>
+              </button>
+              <button
+                name="deleteTodayTask"
+                type="submit"
+                class="btn btn-sm btn-outline-danger my-1"
+                value="<%= i %>"
+              >
+                Delete
+              </button>
+            </form>
+          </div>
+        </div>
+        <% } %> <% } %>
+      </div>
+      <div class="col border-top">
+        <form action="/add" class method="post">
+          <input
+            type="text"
+            class="form-control my-2"
+            name="Today"
+            placeholder="New task for today"
+          />
+          <input
+            class="btn btn-primary btn-sm my-2"
+            type="submit"
+            value="Add Task"
+          />
+        </form>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 border">
+      <h3 class="mt-2">WORK'S</h3>
+        <div class="col taskscreen">
+        <% if (locals.workTask) { %> 
+            <% for( let i = 0; i <Object.keys(workTask).length; i++) { %>
+        <div class="row rounded border mx-1 my-2 px-2">
+          <div 
+          <% if (workTask[Object.keys(workTask)[i]] === true) { %>
+            class="col-xl-8 col-lg-7 col-md-8 col-12 pt-2 donetoday"
+          <% } else { %>
+            class="col-xl-8 col-lg-7 col-md-8 col-12 pt-2 donetoday linethrough"
+            <% } %>
+          >
+            <%= i+1 %>. <%= Object.keys(workTask)[i]%>
+          </div>
+          <div class="col-xl-4 col-lg-5 col-md-4 col-12">
+            <form action="/delete" class="text-center" method="post">
+              <button
+                name="worktaskdone"
+                type="submit"
+                class="btn btn-sm btn-outline-secondary my-1 donebutton"
+                value="<%= Object.keys(workTask)[i] %>"
+                >
+                <% if (workTask[Object.keys(workTask)[i]] === true) { %>
+                    Done
+                  <% } else { %>
+                    Undone
+                    <% } %>
+              </button>
+              <button
+                name="deleteWorkTask"
+                type="submit"
+                class="btn btn-sm btn-outline-danger my-1"
+                value="<%= i %>"
+              >
+                Delete
+              </button>
+            </form>
+          </div>
+        </div>
+        <% } %> <% } %>
+      </div>
+
+      <div class="col border-top">
+        <form action="/add" method="post">
+          <input
+            type="text"
+            class="form-control my-2"
+            name="Work"
+            placeholder="New task for work"
+          />
+          <input
+            class="btn btn-primary btn-sm my-2"
+            type="submit"
+            value="Add Task"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer.ejs") %>

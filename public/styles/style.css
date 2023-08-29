@@ -1,0 +1,9 @@
+.taskscreen {
+  text-align: left;
+}
+.deletebutton {
+  width: min-content;
+}
+.linethrough {
+  text-decoration: line-through;
+}

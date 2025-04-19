@@ -2,7 +2,7 @@ import express from "express";
 import bodyparser from "body-parser";
 
 const app = express();
-const port = 4000;
+const PORT = 3000;
 app.use(express.static("public"));
 app.use(bodyparser.urlencoded({ extended: true }));
 let todayTask = {};
@@ -51,6 +51,6 @@ app.post("/delete", (req, res) => {
   res.redirect("/");
 });
 
-app.listen(port, () => {
-  console.log(`site is running on ${port}`);
+app.listen(PORT, () => {
+  console.log(`site is running on ${PORT}`);
 });
